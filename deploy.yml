@@ -23,13 +23,13 @@
         - 2.png
         - icon.png
         - improve-form.html
-        - index.html
+        - landing.html
         - landing.css
         - robots.txt
         - sitemap.xml
         - uninstall.html
         - update.html
-        - welcome.html
+        - index.html
 
 
     - name: restart docker-compose
