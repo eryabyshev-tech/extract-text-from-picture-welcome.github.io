@@ -1,0 +1,38 @@
+- hosts: landings
+  become: true
+  vars:
+    dest_dir_default: /root/sites/landings/tfp
+    nginx_path: /root/sites
+
+  tasks:
+    - name: Ensure destination directory exists
+      file:
+        path: "{{ dest_dir | default(dest_dir_default) }}"
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Copy landing files
+      copy:
+        src: "{{ item }}"
+        dest: "{{ dest_dir | default(dest_dir_default) }}/"
+        mode: "0644"
+      loop:
+        - 1.png
+        - 2.png
+        - icon.png
+        - improve-form.html
+        - index.html
+        - landing.css
+        - robots.txt
+        - sitemap.xml
+        - uninstall.html
+        - update.html
+        - welcome.html
+
+
+    - name: restart docker-compose
+      command: docker compose restart
+      args:
+        chdir: "{{ nginx_path }}"

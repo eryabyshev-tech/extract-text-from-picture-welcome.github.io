@@ -1,0 +1,2 @@
+[landings]
+109.207.171.99 ansible_user=root ansible_password='{{lookup("env","LANDING_PASS")}}' ansible_ssh_pass='{{lookup("env","LANDING_PASS")}}'

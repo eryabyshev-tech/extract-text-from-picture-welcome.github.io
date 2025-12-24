@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://extract-text-from-picture.space/sitemap.xml
